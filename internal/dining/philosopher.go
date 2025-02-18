@@ -1,7 +1,6 @@
-package philosopher
+package dining
 
 import (
-	"dining-philosophers/internal/fork"
 	logger "dining-philosophers/pkg/log"
 	"math/rand"
 	"sync"
@@ -10,15 +9,15 @@ import (
 
 type Philosopher struct {
 	Name      string
-	LeftFork  *fork.Fork
-	RightFork *fork.Fork
+	LeftFork  *Fork
+	RightFork *Fork
 }
 
 const TimesToEat = 3
 
 var log = logger.GetLogger()
 
-func NewPhilosopher(name string, left, right *fork.Fork) *Philosopher {
+func NewPhilosopher(name string, left, right *Fork) *Philosopher {
 	return &Philosopher{Name: name, LeftFork: left, RightFork: right}
 }
 

@@ -1,8 +1,7 @@
 package main
 
 import (
-	"dining-philosophers/internal/fork"
-	"dining-philosophers/internal/philosopher"
+	"dining-philosophers/internal/dining"
 	logger "dining-philosophers/pkg/log"
 	"sync"
 )
@@ -19,15 +18,15 @@ func main() {
 
 func dine() {
 	var wg sync.WaitGroup
-	forks := make([]*fork.Fork, len(philosophersNames))
+	forks := make([]*dining.Fork, len(philosophersNames))
 
 	for i := 0; i < 5; i++ {
-		forks[i] = fork.NewFork(i)
+		forks[i] = dining.NewFork(i)
 	}
 
-	philosophers := make([]*philosopher.Philosopher, len(philosophersNames))
+	philosophers := make([]*dining.Philosopher, len(philosophersNames))
 	for i := 0; i < 5; i++ {
-		philosophers[i] = philosopher.NewPhilosopher(
+		philosophers[i] = dining.NewPhilosopher(
 			philosophersNames[i],
 			forks[i],
 			forks[(i+1)%5],

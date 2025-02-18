@@ -1,4 +1,4 @@
-package fork
+package dining
 
 import "sync"
 

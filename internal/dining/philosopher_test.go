@@ -1,15 +1,14 @@
-package philosopher
+package dining
 
 import (
-	"dining-philosophers/internal/fork"
 	"sync"
 	"testing"
 	"time"
 )
 
 func philosopherWithMockForks(name string) *Philosopher {
-	leftFork := &fork.Fork{ID: 1}
-	rightFork := &fork.Fork{ID: 2}
+	leftFork := &Fork{ID: 1}
+	rightFork := &Fork{ID: 2}
 	return NewPhilosopher(name, leftFork, rightFork)
 }
 
